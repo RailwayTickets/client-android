@@ -1,7 +1,9 @@
 package com.andrewvychev.railwaytickets.di.modules
 
-import android.content.Context
+import com.andrewvychev.railwaytickets.RailwayApplication
+import com.andrewvychev.railwaytickets.RailwayPreferences
 import com.andrewvychev.railwaytickets.data.api.AuthService
+import com.andrewvychev.railwaytickets.data.api.RouteService
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
@@ -13,7 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 @Module
-class NetworkModule(private val context: Context) {
+class NetworkModule(private val application: RailwayApplication) {
 
     companion object {
         const val BASE_URL = "https://railway-tickets.herokuapp.com/"
@@ -38,9 +40,29 @@ class NetworkModule(private val context: Context) {
 
     @Provides
     @Singleton
-    internal fun provideOkHttpClient(): OkHttpClient {
+    internal fun provideRouteServices(retrofit: Retrofit): RouteService {
+        return retrofit.create(RouteService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    internal fun provideOkHttpClient(preferences: RailwayPreferences): OkHttpClient {
         return OkHttpClient.Builder()
+                .addInterceptor {
+                    val request = it.request().newBuilder()
+                    val token = preferences.getToken()
+                    if (token.isNotEmpty()) {
+                        request.addHeader("token", token)
+                    }
+                    it.proceed(request.build())
+                }
                 .build()
+    }
+
+    @Provides
+    @Singleton
+    internal fun providePreferences(): RailwayPreferences {
+        return application.appPreferences
     }
 
     @Provides

@@ -1,5 +1,6 @@
 package com.andrewvychev.railwaytickets.ui.register
 
+import com.andrewvychev.railwaytickets.RailwayPreferences
 import com.andrewvychev.railwaytickets.base.MvpPresenter
 import com.andrewvychev.railwaytickets.data.api.AuthService
 import com.andrewvychev.railwaytickets.data.pojo.RegisterPOJO
@@ -9,7 +10,8 @@ import rx.lang.kotlin.subscribeBy
 /**
  * Created by Andrew on 11/29/17.
  */
-class RegisterPresenter(private val authService: AuthService)
+class RegisterPresenter(private val authService: AuthService,
+                        private val preferences: RailwayPreferences)
     : MvpPresenter<RegisterContract.View>(), RegisterContract.Presenter {
 
 
@@ -20,6 +22,7 @@ class RegisterPresenter(private val authService: AuthService)
                 .subscribeBy(
                         onNext = {
                             getView()?.setProgressVisible(false)
+                            preferences.setToken(it.token)
                             getView()?.showFindRoute()
                         },
                         onError = {

@@ -14,4 +14,10 @@
     <string name="register_confirm_password_hint">Confirm password</string>
     <string name="register_terms">I accept the offer contract and consent to the use of personal data</string>
     <string name="register_button_title">Register</string>
+
+    <string name="find_route_from">From</string>
+    <string name="find_route_to">To</string>
+    <string name="find_route_date">Date</string>
+    <string name="find_route_time">Time</string>
+    <string name="find_route_next">next</string>
 </resources>

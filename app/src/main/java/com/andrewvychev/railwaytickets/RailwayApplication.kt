@@ -12,6 +12,7 @@ import com.andrewvychev.railwaytickets.di.modules.NetworkModule
 class RailwayApplication: Application() {
 
     lateinit var appComponent: MainComponent
+    lateinit var appPreferences: RailwayPreferences
 
     override fun onCreate() {
         super.onCreate()
@@ -20,5 +21,7 @@ class RailwayApplication: Application() {
                 .mainModule(MainModule(this))
                 .networkModule(NetworkModule(this))
                 .build()
+
+        appPreferences = RailwayPreferences(this)
     }
 }

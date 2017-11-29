@@ -1,5 +1,6 @@
 package com.andrewvychev.railwaytickets.ui.login
 
+import com.andrewvychev.railwaytickets.RailwayPreferences
 import com.andrewvychev.railwaytickets.base.MvpPresenter
 import com.andrewvychev.railwaytickets.data.api.AuthService
 import com.andrewvychev.railwaytickets.data.pojo.LoginPOJO
@@ -9,7 +10,8 @@ import rx.lang.kotlin.subscribeBy
 /**
  * Created by Andrew on 11/29/17.
  */
-class LoginPresenter(private val authService: AuthService)
+class LoginPresenter(private val authService: AuthService,
+                     private val preferences: RailwayPreferences)
     : MvpPresenter<LoginContract.View>(), LoginContract.Presenter {
 
     override fun onLoginClicked(login: String, password: String) {
@@ -19,6 +21,7 @@ class LoginPresenter(private val authService: AuthService)
                 .subscribeBy(
                         onNext = {
                             getView()?.setProgressVisible(false)
+                            preferences.setToken(it.token)
                             getView()?.showFindRoute()
                         },
                         onError = {

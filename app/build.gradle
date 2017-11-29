@@ -50,6 +50,10 @@ dependencies {
     compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
     compile "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     compile "com.squareup.retrofit2:adapter-rxjava:$retrofitVersion"
+
+    compile("org.threeten:threetenbp:1.3.6") {
+        exclude group: 'com.jakewharton.threetenabp', module: 'threetenabp'
+    }
 }
 repositories {
     mavenCentral()
