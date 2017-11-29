@@ -1,7 +1,9 @@
 package com.andrewvychev.railwaytickets.di.modules
 
 import android.content.Context
+import com.andrewvychev.railwaytickets.data.api.AuthService
 import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -14,7 +16,7 @@ import javax.inject.Singleton
 class NetworkModule(private val context: Context) {
 
     companion object {
-        const val BASE_URL = "https://drums.gismart.xyz/"
+        const val BASE_URL = "https://railway-tickets.herokuapp.com/"
     }
 
     @Provides
@@ -30,8 +32,21 @@ class NetworkModule(private val context: Context) {
 
     @Provides
     @Singleton
+    internal fun provideAuthService(retrofit: Retrofit): AuthService {
+        return retrofit.create(AuthService::class.java)
+    }
+
+    @Provides
+    @Singleton
     internal fun provideOkHttpClient(): OkHttpClient {
         return OkHttpClient.Builder()
                 .build()
+    }
+
+    @Provides
+    @Singleton
+    internal fun provideGson(): Gson {
+        return GsonBuilder()
+                .create()
     }
 }

@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.andrewvychev.railwaytickets">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".RailwayApplication"
         android:allowBackup="true"
@@ -12,7 +14,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".login.LoginActivity"
+            android:name="com.andrewvychev.railwaytickets.ui.login.LoginActivity"
             android:label="@string/login_label">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

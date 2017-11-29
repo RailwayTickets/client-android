@@ -1,4 +1,4 @@
-package com.andrewvychev.railwaytickets.login
+package com.andrewvychev.railwaytickets.ui.login
 
 import com.andrewvychev.railwaytickets.base.Contract
 

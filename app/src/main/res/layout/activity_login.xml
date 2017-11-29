@@ -5,19 +5,18 @@
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:padding="@dimen/activity_vertical_margin"
-    tools:context="com.andrewvychev.railwaytickets.login.LoginActivity">
+    tools:context=".ui.login.LoginActivity">
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/et_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/login_hint"
-        android:inputType="textEmailAddress"
         android:maxLines="1"
         android:singleLine="true" />
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/et_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/password_hint"
@@ -31,6 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/std_margin_huge"
+        android:onClick="onLoginClicked"
         android:text="@string/login_btn_title" />
 
     <Button
@@ -39,10 +39,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/std_margin_huge"
+        android:onClick="onRegisterClicked"
         android:text="@string/register_btn_title" />
 
     <ProgressBar
-        android:id="@+id/login_progress"
+        android:id="@+id/progress"
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

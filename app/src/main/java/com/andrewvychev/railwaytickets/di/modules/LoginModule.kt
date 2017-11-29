@@ -1,8 +1,9 @@
 package com.andrewvychev.railwaytickets.di.modules
 
+import com.andrewvychev.railwaytickets.data.api.AuthService
 import com.andrewvychev.railwaytickets.di.scopes.ScreenScope
-import com.andrewvychev.railwaytickets.login.LoginContract
-import com.andrewvychev.railwaytickets.login.LoginPresenter
+import com.andrewvychev.railwaytickets.ui.login.LoginContract
+import com.andrewvychev.railwaytickets.ui.login.LoginPresenter
 import dagger.Module
 import dagger.Provides
 
@@ -14,7 +15,7 @@ class LoginModule {
 
     @Provides
     @ScreenScope
-    internal fun provideLoginPresenter(): LoginContract.Presenter {
-        return LoginPresenter()
+    internal fun provideLoginPresenter(authService: AuthService): LoginContract.Presenter {
+        return LoginPresenter(authService)
     }
 }
