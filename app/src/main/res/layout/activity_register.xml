@@ -1,5 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
@@ -7,14 +7,13 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingEnd="@dimen/activity_horizontal_margin"
     android:paddingStart="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".ui.login.LoginActivity">
+    android:paddingTop="@dimen/activity_vertical_margin">
 
     <EditText
         android:id="@+id/et_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/login_hint"
+        android:hint="@string/register_login_hint"
         android:maxLines="1"
         android:singleLine="true" />
 
@@ -22,28 +21,32 @@
         android:id="@+id/et_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/password_hint"
+        android:layout_marginTop="@dimen/std_margin_extra_huge"
+        android:hint="@string/register_password_hint"
         android:inputType="textPassword"
         android:maxLines="1"
         android:singleLine="true" />
 
-    <Button
-        android:id="@+id/btn_login"
-        style="@style/Base.Widget.AppCompat.Button.Colored"
+    <EditText
+        android:id="@+id/et_confirm_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/std_margin_huge"
-        android:onClick="onLoginClicked"
-        android:text="@string/login_btn_title" />
+        android:layout_marginTop="@dimen/std_margin_extra_huge"
+        android:hint="@string/register_confirm_password_hint"
+        android:inputType="textPassword"
+        android:maxLines="1"
+        android:singleLine="true" />
 
-    <Button
-        android:id="@+id/btn_register"
-        style="@style/Base.Widget.AppCompat.Button.Colored"
+    <CheckBox
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/std_margin_huge"
-        android:onClick="onRegisterClicked"
-        android:text="@string/register_btn_title" />
+        android:layout_marginTop="@dimen/std_margin_extra_huge"
+        android:text="@string/register_terms" />
+
+    <android.support.v4.widget.Space
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
     <ProgressBar
         android:id="@+id/progress"
@@ -52,4 +55,17 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/std_margin_huge"
         android:visibility="gone" />
+
+    <android.support.v4.widget.Space
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <Button
+        style="@style/Base.Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onRegisterClicked"
+        android:text="@string/register_button_title" />
+
 </LinearLayout>

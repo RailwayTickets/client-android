@@ -1,20 +1,21 @@
-package com.andrewvychev.railwaytickets.ui.login
+package com.andrewvychev.railwaytickets.ui.register
 
 import com.andrewvychev.railwaytickets.base.MvpPresenter
 import com.andrewvychev.railwaytickets.data.api.AuthService
-import com.andrewvychev.railwaytickets.data.pojo.LoginPOJO
+import com.andrewvychev.railwaytickets.data.pojo.RegisterPOJO
 import com.andrewvychev.railwaytickets.util.applyIoToMainThread
 import rx.lang.kotlin.subscribeBy
 
 /**
  * Created by Andrew on 11/29/17.
  */
-class LoginPresenter(private val authService: AuthService)
-    : MvpPresenter<LoginContract.View>(), LoginContract.Presenter {
+class RegisterPresenter(private val authService: AuthService)
+    : MvpPresenter<RegisterContract.View>(), RegisterContract.Presenter {
 
-    override fun onLoginClicked(login: String, password: String) {
+
+    override fun onRegisterClicked(login: String, password: String, confirmPassword: String) {
         getView()?.setProgressVisible(true)
-        authService.login(LoginPOJO(login, password))
+        authService.register(RegisterPOJO(login, password, confirmPassword))
                 .applyIoToMainThread()
                 .subscribeBy(
                         onNext = {
@@ -24,11 +25,8 @@ class LoginPresenter(private val authService: AuthService)
                         onError = {
                             getView()?.setProgressVisible(false)
                             getView()?.showError("ERROR")
-                        })
+                        }
+                )
 
-    }
-
-    override fun onRegisterClicked() {
-        getView()?.showRegister()
     }
 }

@@ -1,29 +1,26 @@
-package com.andrewvychev.railwaytickets.ui.login
+package com.andrewvychev.railwaytickets.ui.register
 
 import com.andrewvychev.railwaytickets.base.Contract
 
 /**
  * Created by Andrew on 11/29/17.
  */
-interface LoginContract {
+interface RegisterContract {
 
     interface View: Contract.View {
+
+        fun setProgressVisible(visible: Boolean)
 
         fun showError(text: String)
 
         fun showFindRoute()
 
-        fun showRegister()
-
-        fun setProgressVisible(visible: Boolean)
-
     }
 
     interface Presenter: Contract.Presenter<View> {
 
-        fun onLoginClicked(login: String, password: String)
-
-        fun onRegisterClicked()
+        fun onRegisterClicked(login: String, password: String, confirmPassword: String)
 
     }
+
 }
