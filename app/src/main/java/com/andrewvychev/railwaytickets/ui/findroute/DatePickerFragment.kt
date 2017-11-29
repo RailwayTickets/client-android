@@ -56,12 +56,12 @@ class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener 
                 date.dayOfMonth
         )
 
-        datePickerDialog.datePicker.maxDate = System.currentTimeMillis()
+//        datePickerDialog.datePicker.maxDate = System.currentTimeMillis()
         return datePickerDialog
     }
 
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, day: Int) {
-        val date = LocalDate.of(year, month, day)
+        val date = LocalDate.of(year, month + 1, day)
         listener?.onDateSet(date)
     }
 

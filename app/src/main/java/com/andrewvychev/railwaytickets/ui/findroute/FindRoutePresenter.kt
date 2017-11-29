@@ -26,7 +26,7 @@ class FindRoutePresenter(private val routeService: RouteService)
                 .applyIoToMainThread()
                 .subscribeBy(
                         onNext = {
-                            Log.d("YRA", it.toString())
+                            getView()?.showTickets(it.trains)
                         },
                         onError = {
                             it.printStackTrace()

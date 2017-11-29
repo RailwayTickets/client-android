@@ -7,6 +7,8 @@ import com.andrewvychev.railwaytickets.R
 import com.andrewvychev.railwaytickets.RailwayApplication
 import com.andrewvychev.railwaytickets.base.Contract
 import com.andrewvychev.railwaytickets.base.MvpActivity
+import com.andrewvychev.railwaytickets.data.pojo.TrainPOJO
+import com.andrewvychev.railwaytickets.ui.tickets.TicketsActivity
 import kotlinx.android.synthetic.main.activity_find_route.et_date
 import kotlinx.android.synthetic.main.activity_find_route.et_from
 import kotlinx.android.synthetic.main.activity_find_route.et_to
@@ -41,6 +43,10 @@ class FindRouteActivity : MvpActivity<FindRouteContract.View>(), FindRouteContra
         val fragment = DatePickerFragment.newInstance(LocalDate.now())
         fragment.setListener(this)
         fragment.show(supportFragmentManager, "")
+    }
+
+    override fun showTickets(tickets: List<TrainPOJO>) {
+        TicketsActivity.start(this, ArrayList(tickets))
     }
 
     override fun onDateSet(date: LocalDate) {

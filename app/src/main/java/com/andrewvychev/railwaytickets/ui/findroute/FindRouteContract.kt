@@ -1,6 +1,7 @@
 package com.andrewvychev.railwaytickets.ui.findroute
 
 import com.andrewvychev.railwaytickets.base.Contract
+import com.andrewvychev.railwaytickets.data.pojo.TrainPOJO
 import org.threeten.bp.LocalDate
 
 /**
@@ -9,6 +10,8 @@ import org.threeten.bp.LocalDate
 interface FindRouteContract {
 
     interface View: Contract.View {
+
+        fun showTickets(tickets: List<TrainPOJO>)
 
     }
 
