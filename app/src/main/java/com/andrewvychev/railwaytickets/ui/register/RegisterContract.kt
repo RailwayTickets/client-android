@@ -7,7 +7,7 @@ import com.andrewvychev.railwaytickets.base.Contract
  */
 interface RegisterContract {
 
-    interface View: Contract.View {
+    interface View : Contract.View {
 
         fun setProgressVisible(visible: Boolean)
 
@@ -17,7 +17,7 @@ interface RegisterContract {
 
     }
 
-    interface Presenter: Contract.Presenter<View> {
+    interface Presenter : Contract.Presenter<View> {
 
         fun onRegisterClicked(login: String, password: String, confirmPassword: String)
 

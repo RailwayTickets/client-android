@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 val profile = ProfileFragment()
                 transaction.replace(R.id.fragment_container, profile)
             }
-            R.id.nav_tickets -> {
+            R.id.nav_buy_ticket -> {
                 val findRoute = FindRouteFragment()
                 transaction.replace(R.id.fragment_container, findRoute)
             }

@@ -4,14 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.TextView
 import com.andrewvychev.railwaytickets.R
 import com.andrewvychev.railwaytickets.RailwayApplication
 import com.andrewvychev.railwaytickets.base.Contract
 import com.andrewvychev.railwaytickets.base.MvpFragment
-import com.andrewvychev.railwaytickets.data.pojo.TrainPOJO
+import com.andrewvychev.railwaytickets.data.pojo.TicketPOJO
 import com.andrewvychev.railwaytickets.ui.findroute.models.FromSearchModel
 import com.andrewvychev.railwaytickets.ui.findroute.models.ToSearchModel
+import com.andrewvychev.railwaytickets.ui.tickets.TicketsFragment
 import ir.mirrajabi.searchdialog.SimpleSearchDialogCompat
 import ir.mirrajabi.searchdialog.core.SearchResultListener
 import ir.mirrajabi.searchdialog.core.Searchable
@@ -84,8 +86,11 @@ class FindRouteFragment : MvpFragment<FindRouteContract.View>(), FindRouteContra
         fragment.show(fragmentManager, "")
     }
 
-    override fun showTickets(tickets: List<TrainPOJO>) {
-//        TicketsActivity.start(activity, ArrayList(tickets))
+    override fun showTickets(tickets: List<TicketPOJO>) {
+        val fragmentContainerId = activity?.findViewById<FrameLayout>(R.id.fragment_container)?.id ?: return
+        fragmentManager?.beginTransaction()
+                ?.replace(fragmentContainerId, TicketsFragment.getInstance(ArrayList(tickets)))
+                ?.commit()
     }
 
     override fun setProgressVisible(visible: Boolean) {

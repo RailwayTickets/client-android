@@ -1,10 +1,9 @@
 package com.andrewvychev.railwaytickets.ui.findroute
 
 import com.andrewvychev.railwaytickets.base.Contract
-import com.andrewvychev.railwaytickets.data.pojo.TrainPOJO
+import com.andrewvychev.railwaytickets.data.pojo.TicketPOJO
 import com.andrewvychev.railwaytickets.ui.findroute.models.FromSearchModel
 import com.andrewvychev.railwaytickets.ui.findroute.models.ToSearchModel
-import ir.mirrajabi.searchdialog.core.Searchable
 import org.threeten.bp.LocalDate
 
 /**
@@ -12,9 +11,9 @@ import org.threeten.bp.LocalDate
  */
 interface FindRouteContract {
 
-    interface View: Contract.ProgressView {
+    interface View : Contract.ProgressView {
 
-        fun showTickets(tickets: List<TrainPOJO>)
+        fun showTickets(tickets: List<TicketPOJO>)
 
         fun showSearchDialogFrom(from: List<FromSearchModel>)
 
@@ -22,7 +21,7 @@ interface FindRouteContract {
 
     }
 
-    interface Presenter: Contract.Presenter<View> {
+    interface Presenter : Contract.Presenter<View> {
 
         fun onDateChoosed(date: LocalDate)
 

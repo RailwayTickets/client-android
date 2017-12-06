@@ -21,7 +21,7 @@ import javax.inject.Inject
 /**
  * Created by Andrew on 12/6/17.
  */
-class ProfileFragment: MvpFragment<ProfileContract.View>(), ProfileContract.View {
+class ProfileFragment : MvpFragment<ProfileContract.View>(), ProfileContract.View {
 
     @Inject lateinit var presenter: ProfileContract.Presenter
 

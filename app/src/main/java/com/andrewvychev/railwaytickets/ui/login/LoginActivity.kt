@@ -8,7 +8,6 @@ import com.andrewvychev.railwaytickets.R
 import com.andrewvychev.railwaytickets.RailwayApplication
 import com.andrewvychev.railwaytickets.base.Contract
 import com.andrewvychev.railwaytickets.base.MvpActivity
-import com.andrewvychev.railwaytickets.ui.findroute.FindRouteFragment
 import com.andrewvychev.railwaytickets.ui.main.MainActivity
 import com.andrewvychev.railwaytickets.ui.register.RegisterActivity
 import kotlinx.android.synthetic.main.activity_login.et_login

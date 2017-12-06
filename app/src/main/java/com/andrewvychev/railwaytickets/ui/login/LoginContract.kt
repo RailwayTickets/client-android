@@ -7,7 +7,7 @@ import com.andrewvychev.railwaytickets.base.Contract
  */
 interface LoginContract {
 
-    interface View: Contract.View {
+    interface View : Contract.View {
 
         fun showError(text: String)
 
@@ -19,7 +19,7 @@ interface LoginContract {
 
     }
 
-    interface Presenter: Contract.Presenter<View> {
+    interface Presenter : Contract.Presenter<View> {
 
         fun onLoginClicked(login: String, password: String)
 

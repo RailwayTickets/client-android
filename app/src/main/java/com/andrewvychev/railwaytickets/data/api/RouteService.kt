@@ -6,6 +6,7 @@ import com.andrewvychev.railwaytickets.data.pojo.SearchResultPOJO
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import rx.Completable
 import rx.Observable
 
 /**
@@ -21,4 +22,7 @@ interface RouteService {
 
     @GET("departures")
     fun departures(): Observable<LocationsPOJO>
+
+    @GET("buy")
+    fun buy(id: String): Completable
 }

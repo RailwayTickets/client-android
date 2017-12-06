@@ -59,7 +59,7 @@ class FindRoutePresenter(private val routeService: RouteService)
                 .applyIoToMainThread()
                 .subscribeBy(
                         onNext = {
-                            getView()?.showTickets(it.trains)
+                            getView()?.showTickets(it.tickets)
                         },
                         onError = {
                             it.printStackTrace()
