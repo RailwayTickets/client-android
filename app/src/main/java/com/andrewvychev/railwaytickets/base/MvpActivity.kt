@@ -4,9 +4,8 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 
 /**
- * Created by Andrew on 7/6/17.
+ * Created by Andrew on 12/6/17.
  */
-
 abstract class MvpActivity<V : Contract.View> : AppCompatActivity(),
         Contract.View {
 

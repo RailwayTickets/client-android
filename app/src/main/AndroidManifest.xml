@@ -25,7 +25,7 @@
             android:name=".ui.register.RegisterActivity"
             android:label="@string/register_label" />
         <activity
-            android:name=".ui.findroute.FindRouteActivity"
+            android:name=".ui.main.MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.tickets.TicketsActivity" />
     </application>

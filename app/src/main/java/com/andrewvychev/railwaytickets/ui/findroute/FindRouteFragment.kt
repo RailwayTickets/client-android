@@ -1,76 +1,68 @@
 package com.andrewvychev.railwaytickets.ui.findroute
 
 import android.os.Bundle
-import android.support.design.widget.NavigationView
-import android.support.v4.view.GravityCompat
-import android.support.v7.app.ActionBarDrawerToggle
-import android.view.MenuItem
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.TextView
 import com.andrewvychev.railwaytickets.R
 import com.andrewvychev.railwaytickets.RailwayApplication
 import com.andrewvychev.railwaytickets.base.Contract
-import com.andrewvychev.railwaytickets.base.MvpActivity
+import com.andrewvychev.railwaytickets.base.MvpFragment
 import com.andrewvychev.railwaytickets.data.pojo.TrainPOJO
 import com.andrewvychev.railwaytickets.ui.findroute.models.FromSearchModel
 import com.andrewvychev.railwaytickets.ui.findroute.models.ToSearchModel
-import com.andrewvychev.railwaytickets.ui.tickets.TicketsActivity
 import ir.mirrajabi.searchdialog.SimpleSearchDialogCompat
 import ir.mirrajabi.searchdialog.core.SearchResultListener
 import ir.mirrajabi.searchdialog.core.Searchable
-import kotlinx.android.synthetic.main.activity_find_route.drawer_layout
-import kotlinx.android.synthetic.main.activity_find_route.nav_view
-import kotlinx.android.synthetic.main.app_bar_find_route.toolbar
-import kotlinx.android.synthetic.main.content_find_route.et_date
-import kotlinx.android.synthetic.main.content_find_route.et_from
-import kotlinx.android.synthetic.main.content_find_route.et_to
-import kotlinx.android.synthetic.main.content_find_route.progress
+import kotlinx.android.synthetic.main.frament_find_route.btn_next
+import kotlinx.android.synthetic.main.frament_find_route.et_date
+import kotlinx.android.synthetic.main.frament_find_route.et_from
+import kotlinx.android.synthetic.main.frament_find_route.et_to
+import kotlinx.android.synthetic.main.frament_find_route.progress
 import org.threeten.bp.LocalDate
 import javax.inject.Inject
 
 
-class FindRouteActivity : MvpActivity<FindRouteContract.View>(), FindRouteContract.View,
-        DatePickerFragment.Listener, NavigationView.OnNavigationItemSelectedListener {
+class FindRouteFragment : MvpFragment<FindRouteContract.View>(), FindRouteContract.View,
+        DatePickerFragment.Listener {
 
     @Inject lateinit var presenter: FindRouteContract.Presenter
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_find_route)
-        setSupportActionBar(toolbar)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        super.onCreateView(inflater, container, savedInstanceState)
+        val view = inflater.inflate(R.layout.frament_find_route, container, false)
+        return view
+    }
 
-        val toggle = ActionBarDrawerToggle(
-                this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
-        drawer_layout.addDrawerListener(toggle)
-        toggle.syncState()
-
-        nav_view.setNavigationItemSelectedListener(this)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        et_from.setOnClickListener { onFromClicked() }
+        et_to.setOnClickListener { onToClicked() }
+        btn_next.setOnClickListener { onNextClicked() }
+        et_date.setOnClickListener { onChooseDateClicked() }
     }
 
     override fun injectDependencies() {
-        (application as? RailwayApplication)?.appComponent
+        (activity?.application as? RailwayApplication)?.appComponent
                 ?.activityComponent()
                 ?.build()
                 ?.inject(this)
     }
 
+
     override fun getPresenter(): Contract.Presenter<FindRouteContract.View> = presenter
 
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        drawer_layout.closeDrawer(GravityCompat.START)
-        return true
-    }
-
-    fun onNextClicked(view: View) {
+    fun onNextClicked() {
         presenter.onNextClicked(et_from.text.toString(),
                 et_to.text.toString())
     }
 
-    fun onFromClicked(view: View) {
+    fun onFromClicked() {
         presenter.onFromClicked()
     }
 
-    fun onToClicked(view: View) {
+    fun onToClicked() {
         presenter.onToClicked()
     }
 
@@ -86,17 +78,14 @@ class FindRouteActivity : MvpActivity<FindRouteContract.View>(), FindRouteContra
         })
     }
 
-    override fun onBackPressed() {
-    }
-
-    fun onChooseDateClicked(view: View) {
+    fun onChooseDateClicked() {
         val fragment = DatePickerFragment.newInstance(LocalDate.now())
         fragment.setListener(this)
-        fragment.show(supportFragmentManager, "")
+        fragment.show(fragmentManager, "")
     }
 
     override fun showTickets(tickets: List<TrainPOJO>) {
-        TicketsActivity.start(this, ArrayList(tickets))
+//        TicketsActivity.start(activity, ArrayList(tickets))
     }
 
     override fun setProgressVisible(visible: Boolean) {
@@ -109,7 +98,7 @@ class FindRouteActivity : MvpActivity<FindRouteContract.View>(), FindRouteContra
     }
 
     private fun showSearchDialog(items: List<Searchable>, onComplete: (Searchable) -> Unit) {
-        SimpleSearchDialogCompat(this,
+        SimpleSearchDialogCompat(activity,
                 "Search...",
                 "What are you looking for...?",
                 null,

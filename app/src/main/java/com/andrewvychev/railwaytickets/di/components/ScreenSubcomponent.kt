@@ -3,7 +3,7 @@ package com.andrewvychev.railwaytickets.di.components
 import com.andrewvychev.railwaytickets.di.modules.AuthModule
 import com.andrewvychev.railwaytickets.di.modules.FindRouteModule
 import com.andrewvychev.railwaytickets.di.scopes.ScreenScope
-import com.andrewvychev.railwaytickets.ui.findroute.FindRouteActivity
+import com.andrewvychev.railwaytickets.ui.findroute.FindRouteFragment
 import com.andrewvychev.railwaytickets.ui.login.LoginActivity
 import com.andrewvychev.railwaytickets.ui.register.RegisterActivity
 import dagger.Subcomponent
@@ -16,7 +16,7 @@ interface ScreenSubcomponent {
 
     fun inject(activity: RegisterActivity)
 
-    fun inject(activity: FindRouteActivity)
+    fun inject(activity: FindRouteFragment)
 
     @Subcomponent.Builder
     interface Builder {
