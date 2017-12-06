@@ -22,7 +22,7 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    
+
     <string name="nav_profile">Profile</string>
     <string name="nav_tickets">My tickets</string>
     <string name="nav_buy_ticket">Buy ticket</string>
@@ -36,4 +36,5 @@
     <string name="profile_hint_email">Email</string>
     <string name="profile_hint_doc_type">Document type</string>
     <string name="profile_hint_doc_number">Document number</string>
+    <string name="profile_btn_save">Save</string>
 </resources>

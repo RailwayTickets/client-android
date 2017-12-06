@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import com.andrewvychev.railwaytickets.R
 import com.andrewvychev.railwaytickets.ui.findroute.FindRouteFragment
+import com.andrewvychev.railwaytickets.ui.profile.ProfileFragment
 import kotlinx.android.synthetic.main.activity_main.drawer_layout
 import kotlinx.android.synthetic.main.activity_main.nav_view
 import kotlinx.android.synthetic.main.app_bar_main.toolbar
@@ -35,7 +36,22 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 .commit()
     }
 
+    override fun onBackPressed() {
+    }
+
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        val transaction = supportFragmentManager.beginTransaction()
+        when (item.itemId) {
+            R.id.nav_profile -> {
+                val profile = ProfileFragment()
+                transaction.replace(R.id.fragment_container, profile)
+            }
+            R.id.nav_tickets -> {
+                val findRoute = FindRouteFragment()
+                transaction.replace(R.id.fragment_container, findRoute)
+            }
+        }
+        transaction.commit()
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
     }

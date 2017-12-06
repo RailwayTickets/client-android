@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.andrewvychev.railwaytickets.R
 import com.andrewvychev.railwaytickets.data.pojo.TrainPOJO
-import kotlinx.android.synthetic.main.activity_tickets.tv_tickets
+import kotlinx.android.synthetic.main.fragment_tickets.tv_tickets
 
 class TicketsActivity : AppCompatActivity() {
 
@@ -23,7 +23,7 @@ class TicketsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_tickets)
+        setContentView(R.layout.fragment_tickets)
         val tickets = intent.getSerializableExtra(EXTRA_TICKETS) as ArrayList<TrainPOJO>
         tv_tickets.text = tickets.toString()
     }

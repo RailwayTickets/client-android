@@ -9,46 +9,67 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/et_from"
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:focusable="false"
-            android:hint="@string/find_route_from"
-            android:maxLines="1"
-            android:singleLine="true" />
+            android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/et_to"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/std_margin_extra_huge"
-            android:clickable="true"
-            android:focusable="false"
-            android:hint="@string/find_route_to"
-            android:maxLines="1"
-            android:singleLine="true" />
+            <AutoCompleteTextView
+                android:id="@+id/et_from"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="false"
+                android:hint="@string/find_route_from"
+                android:maxLines="1"
+                android:singleLine="true" />
+        </android.support.design.widget.TextInputLayout>
 
-        <EditText
-            android:id="@+id/et_date"
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/std_margin_extra_huge"
-            android:clickable="true"
-            android:focusable="false"
-            android:hint="@string/find_route_date"
-            android:maxLines="1"
-            android:singleLine="true" />
+            android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/et_time"
+            <AutoCompleteTextView
+                android:id="@+id/et_to"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/std_margin_extra_huge"
+                android:clickable="true"
+                android:focusable="false"
+                android:hint="@string/find_route_to"
+                android:maxLines="1"
+                android:singleLine="true" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/std_margin_extra_huge"
-            android:hint="@string/find_route_time"
-            android:maxLines="1"
-            android:singleLine="true" />
+            android:layout_height="wrap_content">
+
+            <AutoCompleteTextView
+                android:id="@+id/et_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/std_margin_extra_huge"
+                android:clickable="true"
+                android:focusable="false"
+                android:hint="@string/find_route_date"
+                android:maxLines="1"
+                android:singleLine="true" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <AutoCompleteTextView
+                android:id="@+id/et_time"
+                android:focusable="false"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/std_margin_extra_huge"
+                android:hint="@string/find_route_time"
+                android:maxLines="1"
+                android:singleLine="true" />
+        </android.support.design.widget.TextInputLayout>
 
         <android.support.v4.widget.Space
             android:layout_width="wrap_content"
