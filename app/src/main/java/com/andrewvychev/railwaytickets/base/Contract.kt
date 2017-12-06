@@ -31,6 +31,12 @@ interface Contract {
 
     interface View
 
+    interface ProgressView: View {
+
+        fun setProgressVisible(visible: Boolean)
+
+    }
+
     interface AdapterView<E> : View {
 
         /**

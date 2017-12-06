@@ -18,6 +18,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/find_route_from"
+            android:onClick="onFromClicked"
+            android:clickable="true"
+            android:focusable="false"
             android:maxLines="1"
             android:singleLine="true" />
 
@@ -25,7 +28,10 @@
             android:id="@+id/et_to"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="onToClicked"
             android:layout_marginTop="@dimen/std_margin_extra_huge"
+            android:clickable="true"
+            android:focusable="false"
             android:hint="@string/find_route_to"
             android:maxLines="1"
             android:singleLine="true" />

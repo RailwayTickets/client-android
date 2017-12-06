@@ -16,6 +16,11 @@ class RegisterPresenter(private val authService: AuthService,
 
 
     override fun onRegisterClicked(login: String, password: String, confirmPassword: String) {
+        if (password != confirmPassword) {
+            getView()?.showError("Password and confirmation doesn't match")
+            return
+        }
+
         getView()?.setProgressVisible(true)
         authService.register(RegisterPOJO(login, password, confirmPassword))
                 .applyIoToMainThread()
