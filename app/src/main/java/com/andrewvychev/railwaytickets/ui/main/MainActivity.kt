@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import com.andrewvychev.railwaytickets.R
 import com.andrewvychev.railwaytickets.ui.findroute.FindRouteFragment
+import com.andrewvychev.railwaytickets.ui.mytickets.MyTicketsFragment
 import com.andrewvychev.railwaytickets.ui.profile.ProfileFragment
 import kotlinx.android.synthetic.main.activity_main.drawer_layout
 import kotlinx.android.synthetic.main.activity_main.nav_view
@@ -49,6 +50,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_buy_ticket -> {
                 val findRoute = FindRouteFragment()
                 transaction.replace(R.id.fragment_container, findRoute)
+            }
+            R.id.nav_tickets -> {
+                val myTickets = MyTicketsFragment()
+                transaction.replace(R.id.fragment_container, myTickets)
             }
         }
         transaction.commit()

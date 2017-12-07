@@ -2,17 +2,23 @@ package com.andrewvychev.railwaytickets.di.components
 
 import com.andrewvychev.railwaytickets.di.modules.AuthModule
 import com.andrewvychev.railwaytickets.di.modules.FindRouteModule
+import com.andrewvychev.railwaytickets.di.modules.MyTicketsModule
 import com.andrewvychev.railwaytickets.di.modules.ProfileModule
 import com.andrewvychev.railwaytickets.di.modules.TicketsModule
 import com.andrewvychev.railwaytickets.di.scopes.ScreenScope
 import com.andrewvychev.railwaytickets.ui.findroute.FindRouteFragment
 import com.andrewvychev.railwaytickets.ui.login.LoginActivity
+import com.andrewvychev.railwaytickets.ui.mytickets.MyTicketsFragment
 import com.andrewvychev.railwaytickets.ui.profile.ProfileFragment
 import com.andrewvychev.railwaytickets.ui.register.RegisterActivity
 import com.andrewvychev.railwaytickets.ui.tickets.TicketsFragment
 import dagger.Subcomponent
 
-@Subcomponent(modules = arrayOf(AuthModule::class, FindRouteModule::class, ProfileModule::class, TicketsModule::class))
+@Subcomponent(modules = arrayOf(AuthModule::class,
+        FindRouteModule::class,
+        ProfileModule::class,
+        TicketsModule::class,
+        MyTicketsModule::class))
 @ScreenScope
 interface ScreenSubcomponent {
 
@@ -25,6 +31,8 @@ interface ScreenSubcomponent {
     fun inject(fragment: ProfileFragment)
 
     fun inject(fragment: TicketsFragment)
+
+    fun inject(fragment: MyTicketsFragment)
 
     @Subcomponent.Builder
     interface Builder {

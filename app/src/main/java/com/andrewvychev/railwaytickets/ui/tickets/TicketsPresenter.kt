@@ -15,8 +15,12 @@ class TicketsPresenter(private val routeService: RouteService) : MvpPresenter<Ti
         routeService.buy(ticket.id)
                 .applyIoToMainThread()
                 .subscribeBy(
+                        onCompleted = {
+                            getView()?.showMessage("Success")
+                        },
                         onError = {
                             it.printStackTrace()
+                            getView()?.showMessage("Error")
                         }
                 )
     }

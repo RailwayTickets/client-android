@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.item_ticket.view.tv_type
  * Created by Andrew on 12/6/17.
  */
 class TicketsAdapter(private val context: Context,
-                     private val listener: OnTicketsListener)
+                     private val listener: OnTicketsListener? = null)
     : ArrayRecyclerAdapter<TicketPOJO, TicketsAdapter.TicketsViewHolder>() {
 
     override fun onBindViewHolder(holder: TicketsViewHolder?, position: Int) {
@@ -40,7 +40,7 @@ class TicketsAdapter(private val context: Context,
             root.tv_seat.text = String.format(context.getString(R.string.tickets_seat), ticket.seat)
             root.tv_type.text = String.format(context.getString(R.string.tickets_type), ticket.type)
             root.setOnClickListener {
-                listener.onTicketClicked(getItem(adapterPosition))
+                listener?.onTicketClicked(getItem(adapterPosition))
             }
         }
     }

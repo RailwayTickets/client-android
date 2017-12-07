@@ -3,9 +3,12 @@ package com.andrewvychev.railwaytickets.data.api
 import com.andrewvychev.railwaytickets.data.pojo.LocationsPOJO
 import com.andrewvychev.railwaytickets.data.pojo.SearchPOJO
 import com.andrewvychev.railwaytickets.data.pojo.SearchResultPOJO
+import com.andrewvychev.railwaytickets.data.pojo.SearhResultTicketsPOJO
+import com.andrewvychev.railwaytickets.data.pojo.TicketPOJO
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Query
 import rx.Completable
 import rx.Observable
 
@@ -24,5 +27,8 @@ interface RouteService {
     fun departures(): Observable<LocationsPOJO>
 
     @GET("buy")
-    fun buy(id: String): Completable
+    fun buy(@Query("id") id: String): Completable
+
+    @GET("profile/tickets")
+    fun myTickets(): Observable<SearhResultTicketsPOJO>
 }

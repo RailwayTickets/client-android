@@ -10,6 +10,7 @@ interface TicketsContract {
 
     interface View : Contract.View {
 
+        fun showMessage(message: String)
 
     }
 

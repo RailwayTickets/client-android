@@ -5,6 +5,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.andrewvychev.railwaytickets.R
 import com.andrewvychev.railwaytickets.RailwayApplication
 import com.andrewvychev.railwaytickets.base.Contract
@@ -32,6 +33,10 @@ class TicketsFragment : MvpFragment<TicketsContract.View>(), TicketsContract.Vie
             fragment.arguments = bundle
             return fragment
         }
+    }
+
+    override fun showMessage(message: String) {
+        Toast.makeText(activity, message, Toast.LENGTH_LONG).show()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
