@@ -32,6 +32,9 @@ interface RouteService {
     @GET("profile/tickets")
     fun myTickets(): Observable<SearhResultTicketsPOJO>
 
+    @GET("return/valid")
+    fun myValidReturnTickets(): Observable<SearhResultTicketsPOJO>
+
     @GET("return")
     fun returnTicket(@Query("id") id: String): Completable
 }

@@ -69,7 +69,7 @@ class ReturnFragment : Fragment(), ReturnAdapter.OnReturnListener {
     }
 
     private fun getTickets() {
-        routeService.myTickets()
+        routeService.myValidReturnTickets()
                 .applyIoToMainThread()
                 .subscribeBy(
                         onNext = {
