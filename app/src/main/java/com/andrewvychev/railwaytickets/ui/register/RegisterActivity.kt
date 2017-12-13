@@ -9,6 +9,7 @@ import com.andrewvychev.railwaytickets.RailwayApplication
 import com.andrewvychev.railwaytickets.base.Contract
 import com.andrewvychev.railwaytickets.base.MvpActivity
 import com.andrewvychev.railwaytickets.ui.findroute.FindRouteFragment
+import com.andrewvychev.railwaytickets.ui.main.MainActivity
 import kotlinx.android.synthetic.main.activity_register.et_confirm_password
 import kotlinx.android.synthetic.main.activity_register.et_login
 import kotlinx.android.synthetic.main.activity_register.et_password
@@ -50,7 +51,7 @@ class RegisterActivity : MvpActivity<RegisterContract.View>(), RegisterContract.
     override fun getPresenter(): Contract.Presenter<RegisterContract.View> = presenter
 
     override fun showFindRoute() {
-        val intent = Intent(this, FindRouteFragment::class.java)
+        val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
     }
 }
