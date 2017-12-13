@@ -44,4 +44,5 @@
     <string name="tickets_carriage">Carriage: %s</string>
     <string name="tickets_seat">Seat: %s</string>
     <string name="tickets_type">Type: %s</string>
+    <string name="request_return">Request return</string>
 </resources>

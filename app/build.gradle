@@ -52,6 +52,8 @@ dependencies {
     compile "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     compile "com.squareup.retrofit2:adapter-rxjava:$retrofitVersion"
 
+    compile 'com.afollestad:sectioned-recyclerview:0.5.0'
+
     compile("org.threeten:threetenbp:1.3.6") {
         exclude group: 'com.jakewharton.threetenabp', module: 'threetenabp'
     }

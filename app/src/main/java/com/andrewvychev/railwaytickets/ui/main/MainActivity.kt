@@ -7,6 +7,7 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import com.andrewvychev.railwaytickets.R
+import com.andrewvychev.railwaytickets.ui.returnTicket.ReturnFragment
 import com.andrewvychev.railwaytickets.ui.findroute.FindRouteFragment
 import com.andrewvychev.railwaytickets.ui.mytickets.MyTicketsFragment
 import com.andrewvychev.railwaytickets.ui.profile.ProfileFragment
@@ -54,6 +55,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_tickets -> {
                 val myTickets = MyTicketsFragment()
                 transaction.replace(R.id.fragment_container, myTickets)
+            }
+            R.id.nav_return_ticket -> {
+                val returnTickets = ReturnFragment()
+                transaction.replace(R.id.fragment_container, returnTickets)
             }
         }
         transaction.commit()

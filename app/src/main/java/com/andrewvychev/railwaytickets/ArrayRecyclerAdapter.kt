@@ -57,6 +57,17 @@ abstract class ArrayRecyclerAdapter<E, VH : RecyclerView.ViewHolder> : RecyclerV
         notifyItemRemoved(position)
     }
 
+    fun remove(item: E) {
+        val position = items.indexOf(item)
+        remove(position)
+    }
+
+    fun removeAll(items: Collection<E>) {
+        items.forEach {
+            remove(it)
+        }
+    }
+
     operator fun set(position: Int, item: E) {
         items[position] = item
         notifyItemChanged(position)
