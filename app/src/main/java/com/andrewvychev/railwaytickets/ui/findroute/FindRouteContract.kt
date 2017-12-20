@@ -13,7 +13,7 @@ interface FindRouteContract {
 
     interface View : Contract.ProgressView {
 
-        fun showTickets(tickets: List<TicketPOJO>)
+        fun showTickets(tickets: List<TicketPOJO>?)
 
         fun showSearchDialogFrom(from: List<FromSearchModel>)
 

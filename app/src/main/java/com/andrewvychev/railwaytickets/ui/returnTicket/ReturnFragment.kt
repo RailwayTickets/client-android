@@ -12,8 +12,11 @@ import com.andrewvychev.railwaytickets.RailwayApplication
 import com.andrewvychev.railwaytickets.data.api.RouteService
 import com.andrewvychev.railwaytickets.data.pojo.TicketPOJO
 import com.andrewvychev.railwaytickets.util.applyIoToMainThread
+import com.andrewvychev.railwaytickets.util.showSnackbar
 import kotlinx.android.synthetic.main.fragment_return.btn_return
 import kotlinx.android.synthetic.main.fragment_return.tickets
+import rx.lang.kotlin.filterNotNull
+import rx.lang.kotlin.firstOrNull
 import rx.lang.kotlin.subscribeBy
 import javax.inject.Inject
 
@@ -73,10 +76,14 @@ class ReturnFragment : Fragment(), ReturnAdapter.OnReturnListener {
                 .applyIoToMainThread()
                 .subscribeBy(
                         onNext = {
-                            adapter.addAll(it.tickets)
+                            if (it.tickets != null) {
+                                adapter.addAll(it.tickets!!)
+                            } else {
+                                activity?.showSnackbar("Tickets not found")
+                            }
                         },
                         onError = {
-                            showToast("Error")
+                            activity?.showSnackbar("Error")
                         }
                 )
     }
@@ -87,11 +94,11 @@ class ReturnFragment : Fragment(), ReturnAdapter.OnReturnListener {
                 .subscribeBy(
                         onCompleted = {
                             checkedTickets.clear()
-                            adapter.removeAll()
+                            adapter.remove(ticket)
                             showToast("Success")
                         },
                         onError = {
-                            showToast("Error")
+                            activity?.showSnackbar("Error")
                         }
                 )
     }

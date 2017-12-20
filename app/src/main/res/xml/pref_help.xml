@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:key="pref_key_storage_settings"
+        android:title="Faq">
+
+        <Preference
+            android:icon="@drawable/ic_assignment_black_24dp"
+            android:key="faq1"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="How to return ticket" />
+
+        <Preference
+            android:icon="@drawable/ic_assignment_black_24dp"
+            android:key="faq2"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="How to enter passport data" />
+
+        <Preference
+            android:icon="@drawable/ic_assignment_black_24dp"
+            android:key="faq3"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="How to buy ticket" />
+
+        <Preference
+            android:icon="@drawable/ic_assignment_black_24dp"
+            android:key="faq4"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="Return ticket rules" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="pref_key_storage_settings"
+        android:title="Contact us">
+
+        <Preference
+            android:icon="@drawable/ic_headset_black_24dp"
+            android:key="faq5"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="Call me back" />
+
+        <Preference
+            android:icon="@drawable/ic_sms_black_24dp"
+            android:key="faq6"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="Rate app" />
+    </PreferenceCategory>
+</PreferenceScreen>

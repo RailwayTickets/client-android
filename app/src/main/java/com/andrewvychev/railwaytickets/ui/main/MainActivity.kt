@@ -7,10 +7,11 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import com.andrewvychev.railwaytickets.R
-import com.andrewvychev.railwaytickets.ui.returnTicket.ReturnFragment
 import com.andrewvychev.railwaytickets.ui.findroute.FindRouteFragment
+import com.andrewvychev.railwaytickets.ui.help.HelpFragment
 import com.andrewvychev.railwaytickets.ui.mytickets.MyTicketsFragment
 import com.andrewvychev.railwaytickets.ui.profile.ProfileFragment
+import com.andrewvychev.railwaytickets.ui.returnTicket.ReturnFragment
 import kotlinx.android.synthetic.main.activity_main.drawer_layout
 import kotlinx.android.synthetic.main.activity_main.nav_view
 import kotlinx.android.synthetic.main.app_bar_main.toolbar
@@ -59,6 +60,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_return_ticket -> {
                 val returnTickets = ReturnFragment()
                 transaction.replace(R.id.fragment_container, returnTickets)
+            }
+            R.id.nav_help -> {
+                val helpFragment = HelpFragment()
+                transaction.replace(R.id.fragment_container, helpFragment)
             }
         }
         transaction.commit()

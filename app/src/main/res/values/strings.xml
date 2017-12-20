@@ -45,4 +45,15 @@
     <string name="tickets_seat">Seat: %s</string>
     <string name="tickets_type">Type: %s</string>
     <string name="request_return">Request return</string>
+
+    <string-array name="faq">
+        <item>one</item>
+        <item>two</item>
+        <item>three</item>
+    </string-array>
+    <string-array name="entry_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
 </resources>

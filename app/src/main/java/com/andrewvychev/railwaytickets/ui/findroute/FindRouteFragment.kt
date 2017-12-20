@@ -14,6 +14,7 @@ import com.andrewvychev.railwaytickets.data.pojo.TicketPOJO
 import com.andrewvychev.railwaytickets.ui.findroute.models.FromSearchModel
 import com.andrewvychev.railwaytickets.ui.findroute.models.ToSearchModel
 import com.andrewvychev.railwaytickets.ui.tickets.TicketsFragment
+import com.andrewvychev.railwaytickets.util.showSnackbar
 import ir.mirrajabi.searchdialog.SimpleSearchDialogCompat
 import ir.mirrajabi.searchdialog.core.SearchResultListener
 import ir.mirrajabi.searchdialog.core.Searchable
@@ -86,11 +87,15 @@ class FindRouteFragment : MvpFragment<FindRouteContract.View>(), FindRouteContra
         fragment.show(fragmentManager, "")
     }
 
-    override fun showTickets(tickets: List<TicketPOJO>) {
-        val fragmentContainerId = activity?.findViewById<FrameLayout>(R.id.fragment_container)?.id ?: return
-        fragmentManager?.beginTransaction()
-                ?.replace(fragmentContainerId, TicketsFragment.getInstance(ArrayList(tickets)))
-                ?.commit()
+    override fun showTickets(tickets: List<TicketPOJO>?) {
+        if (tickets == null) {
+            activity?.showSnackbar("Tickets not found")
+        } else {
+            val fragmentContainerId = activity?.findViewById<FrameLayout>(R.id.fragment_container)?.id ?: return
+            fragmentManager?.beginTransaction()
+                    ?.replace(fragmentContainerId, TicketsFragment.getInstance(ArrayList(tickets)))
+                    ?.commit()
+        }
     }
 
     override fun setProgressVisible(visible: Boolean) {

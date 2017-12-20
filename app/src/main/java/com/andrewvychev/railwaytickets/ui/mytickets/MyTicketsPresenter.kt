@@ -17,7 +17,9 @@ class MyTicketsPresenter(private val findRouteService: RouteService)
                 .applyIoToMainThread()
                 .subscribeBy(
                         onNext = {
-                            getView()?.addItems(it.tickets)
+                            if (it.tickets != null) {
+                                getView()?.addItems(it.tickets!!)
+                            }
                         },
                         onError = {
                             it.printStackTrace()
